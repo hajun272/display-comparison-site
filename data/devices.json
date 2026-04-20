@@ -1,0 +1,41 @@
+[
+  {
+    "id": "macbook-pro-14-inch",
+    "brand": "Apple",
+    "category": "Laptop",
+    "year": 2023,
+    "name": "MacBook Pro 14-inch",
+    "tagline": "Compact Liquid Retina XDR notebook for creators and developers.",
+    "priceUSD": 1999,
+    "display": {
+      "size": 14.2,
+      "resolution": "3024x1964",
+      "ppi": 254,
+      "brightness": 1000,
+      "refreshRate": 120,
+      "panel": "Mini-LED",
+      "colorGamut": "P3",
+      "hdr": true
+    }
+  },
+  {
+    "id": "macbook-pro-16-inch",
+    "brand": "Apple",
+    "category": "Laptop",
+    "year": 2023,
+    "name": "MacBook Pro 16-inch",
+    "tagline": "Large-format Liquid Retina XDR with the same pro-grade luminance.",
+    "priceUSD": 2499,
+    "display": {
+      "size": 16.2,
+      "resolution": "3456x2234",
+      "ppi": 254,
+      "brightness": 1000,
+      "refreshRate": 120,
+      "panel": "Mini-LED",
+      "colorGamut": "P3",
+      "hdr": true
+    }
+  }
+]
+

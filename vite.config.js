@@ -1,9 +1,0 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()],
-  // 깃허브 저장소 이름인 /display_pro/를 경로로 설정합니다.
-  base: '/display_pro/', 
-})
