@@ -5,6 +5,7 @@ import { useState } from "react";
 import { AdSlot } from "@/components/AdSlot";
 import { ComparisonTable } from "@/components/ComparisonTable";
 import { DeviceCatalog } from "@/components/DeviceCatalog";
+import { RealSizeComparison } from "@/components/RealSizeComparison";
 import { filterDevices } from "@/lib/device-catalog";
 import { getBestDisplayPickId, getBestDisplayReasons } from "@/lib/device-utils";
 import { Device, SortOption } from "@/types/device";
@@ -177,6 +178,8 @@ export function ComparisonExperience({ initialDevices }: ComparisonExperiencePro
 
           <ComparisonTable devices={comparedDevices} />
         </section>
+
+        <RealSizeComparison devices={comparedDevices} />
 
         <DeviceCatalog
           devices={catalogDevices}

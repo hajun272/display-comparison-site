@@ -1,3 +1,4 @@
+import { fileURLToPath } from "node:url";
 import path from "node:path";
 import type { NextConfig } from "next";
 
@@ -25,6 +26,7 @@ function getBasePath() {
 }
 
 const basePath = getBasePath();
+const configDirectory = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
   output: "export",
@@ -36,7 +38,7 @@ const nextConfig: NextConfig = {
   basePath,
   assetPrefix: basePath || undefined,
   turbopack: {
-    root: path.resolve(__dirname)
+    root: configDirectory
   }
 };
 
