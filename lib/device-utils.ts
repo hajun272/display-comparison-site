@@ -5,14 +5,14 @@ export const comparisonRows: Array<{
   label: string;
   helper: string;
 }> = [
-  { key: "size", label: "Screen size", helper: "Diagonal panel measurement" },
-  { key: "resolution", label: "Resolution", helper: "Native pixel matrix" },
-  { key: "ppi", label: "Pixel density", helper: "Sharpness per inch" },
-  { key: "brightness", label: "Brightness", helper: "Sustained full-screen nits" },
-  { key: "refreshRate", label: "Refresh rate", helper: "Peak ProMotion or panel rate" },
-  { key: "panel", label: "Panel type", helper: "Underlying display technology" },
-  { key: "colorGamut", label: "Color gamut", helper: "Wide-color coverage" },
-  { key: "hdr", label: "HDR support", helper: "High dynamic range playback" }
+  { key: "size", label: "화면 크기", helper: "대각선 기준 디스플레이 크기" },
+  { key: "resolution", label: "해상도", helper: "기본 렌더링 픽셀 수" },
+  { key: "ppi", label: "픽셀 밀도", helper: "인치당 픽셀 수" },
+  { key: "brightness", label: "밝기", helper: "지속 밝기 기준 nits" },
+  { key: "refreshRate", label: "주사율", helper: "최대 화면 갱신 빈도" },
+  { key: "panel", label: "패널 방식", helper: "디스플레이 기술 종류" },
+  { key: "colorGamut", label: "색역", helper: "표현 가능한 색 영역" },
+  { key: "hdr", label: "HDR", helper: "고명암비 콘텐츠 지원 여부" }
 ];
 
 const panelRank: Record<string, number> = {
@@ -52,7 +52,7 @@ export function formatMetricValue(device: Device, key: DisplayMetricKey) {
     case "colorGamut":
       return String(value);
     case "hdr":
-      return value ? "Supported" : "No";
+      return value ? "지원" : "미지원";
     default:
       return String(value);
   }
@@ -148,9 +148,9 @@ export function getBestDisplayPickId(devices: Device[]) {
 
 export function getBestDisplayReasons(device: Device) {
   return [
-    `${device.display.ppi} PPI clarity`,
-    `${device.display.brightness} nit brightness`,
-    `${device.display.refreshRate} Hz motion`,
-    `${device.display.panel} panel`
+    `${device.display.ppi} PPI 픽셀 밀도`,
+    `${device.display.brightness} nits 밝기`,
+    `${device.display.refreshRate} Hz 주사율`,
+    `${device.display.panel} 패널`
   ];
 }

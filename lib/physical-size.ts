@@ -1,6 +1,8 @@
 import { DisplaySpec } from "@/types/device";
 
 const MILLIMETERS_PER_INCH = 25.4;
+export const CREDIT_CARD_WIDTH_MM = 85.6;
+export const CREDIT_CARD_HEIGHT_MM = 53.98;
 
 export interface ParsedResolution {
   widthPixels: number;
@@ -40,11 +42,7 @@ export interface UserDeviceProfile {
 export interface CalculatedPhysicalSize extends PhysicalDisplaySize {
   trueWidthCssPixels: number;
   trueHeightCssPixels: number;
-  renderedWidthCssPixels: number;
-  renderedHeightCssPixels: number;
-  fitScale: number;
-  isScaledDown: boolean;
-  scaleNotice: string | null;
+  screenFitScale: number;
 }
 
 function clamp(value: number, min: number, max: number) {
@@ -234,7 +232,7 @@ export function calculatePhysicalSize(
   const physicalDisplay = getDisplayPhysicalSize(display);
   const trueWidthCssPixels = physicalDisplay.widthInches * userDevice.cssPixelsPerInch;
   const trueHeightCssPixels = physicalDisplay.heightInches * userDevice.cssPixelsPerInch;
-  const fitScale = Math.min(
+  const screenFitScale = Math.min(
     1,
     userDevice.screenWidthInches / physicalDisplay.widthInches,
     userDevice.screenHeightInches / physicalDisplay.heightInches
@@ -244,14 +242,27 @@ export function calculatePhysicalSize(
     ...physicalDisplay,
     trueWidthCssPixels,
     trueHeightCssPixels,
-    renderedWidthCssPixels: trueWidthCssPixels * fitScale,
-    renderedHeightCssPixels: trueHeightCssPixels * fitScale,
-    fitScale,
-    isScaledDown: fitScale < 0.999,
-    scaleNotice: fitScale < 0.999 ? "Scaled down to fit your screen" : null
+    screenFitScale
   };
 }
 
 export function formatDimensionLabel(valueInches: number, valueMillimeters: number) {
   return `${round(valueInches, 1)} in / ${Math.round(valueMillimeters)} mm`;
+}
+
+export function calculateReferenceObjectCssSize(
+  widthMillimeters: number,
+  heightMillimeters: number,
+  userDevice: UserDeviceProfile,
+  scale = 1
+) {
+  const widthInches = widthMillimeters / MILLIMETERS_PER_INCH;
+  const heightInches = heightMillimeters / MILLIMETERS_PER_INCH;
+
+  return {
+    widthCssPixels: widthInches * userDevice.cssPixelsPerInch * scale,
+    heightCssPixels: heightInches * userDevice.cssPixelsPerInch * scale,
+    widthInches,
+    heightInches
+  };
 }

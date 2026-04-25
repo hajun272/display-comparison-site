@@ -5,7 +5,7 @@
     "category": "Laptop",
     "year": 2023,
     "name": "MacBook Pro 14-inch",
-    "tagline": "Compact Liquid Retina XDR notebook for creators and developers.",
+    "tagline": "휴대성과 고해상도 작업 화면의 균형이 좋은 Liquid Retina XDR 노트북",
     "priceUSD": 1999,
     "display": {
       "size": 14.2,
@@ -24,7 +24,7 @@
     "category": "Laptop",
     "year": 2023,
     "name": "MacBook Pro 16-inch",
-    "tagline": "Large-format Liquid Retina XDR with the same pro-grade luminance.",
+    "tagline": "넓은 작업 공간과 몰입감 있는 시야를 제공하는 대화면 Liquid Retina XDR 모델",
     "priceUSD": 2499,
     "display": {
       "size": 16.2,
@@ -38,4 +38,3 @@
     }
   }
 ]
-
